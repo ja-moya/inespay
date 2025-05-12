@@ -6,6 +6,13 @@ PHPUNIT=vendor/bin/phpunit
 
 start:
 	$(COMPOSE) up -d --build
+	@echo "🔍 Verificando dependencias..."
+	@if [ ! -d vendor ]; then \
+		echo "📦 Ejecutando composer install..."; \
+		$(COMPOSE) run --rm $(SERVICE) composer install; \
+	else \
+		echo "✅ Dependencias ya instaladas."; \
+	fi
 
 stop:
 	$(COMPOSE) down
