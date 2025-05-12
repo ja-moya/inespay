@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Amoya\Inespay\PaymentContext\PaymentModule\Domain\Entity;
 
+use Amoya\Inespay\PaymentContext\PaymentModule\Domain\Enum\PaymentStatus;
 use Amoya\Inespay\PaymentContext\PaymentModule\Domain\ValueObject\PaymentAmount;
 use Amoya\Inespay\PaymentContext\PaymentModule\Domain\ValueObject\PaymentCreditorAccount;
 use Amoya\Inespay\PaymentContext\PaymentModule\Domain\ValueObject\PaymentDebtorAccount;
 use Amoya\Inespay\PaymentContext\PaymentModule\Domain\ValueObject\PaymentNotificationId;
-use Amoya\Inespay\PaymentContext\PaymentModule\Domain\ValueObject\PaymentStatus;
 
 class Payment
 {

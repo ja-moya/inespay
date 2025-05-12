@@ -6,6 +6,7 @@ namespace Amoya\Inespay\SharedContext\SharedModule\Domain\ValueObject;
 
 abstract class AbstractValueObject
 {
+    /** @codeCoverageIgnore */
     abstract public function value(): mixed;
 
     public function equals(self $other): bool

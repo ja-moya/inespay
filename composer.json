@@ -2,11 +2,17 @@
     "name": "amoya/inespay",
     "require": {
         "ramsey/uuid": "^4.7",
-        "firebase/php-jwt": "^6.11"
+        "firebase/php-jwt": "^6.11",
+	    "ext-curl": "*"
     },
     "autoload": {
         "psr-4": {
             "Amoya\\Inespay\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "authors": [
@@ -16,6 +22,7 @@
         }
     ],
     "require-dev": {
-        "roave/security-advisories": "dev-latest"
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^11.5"
     }
 }

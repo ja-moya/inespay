@@ -1,2 +1,4 @@
 /vendor
 .idea
+/tests/last_request.json
+/tests/last_request_error.log

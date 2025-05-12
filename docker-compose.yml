@@ -3,4 +3,6 @@ services:
     build: .
     volumes:
       - .:/app
+      - ~/.gitconfig:/root/.gitconfig:ro
     working_dir: /app
+    command: tail -f /dev/null
