@@ -19,6 +19,16 @@ exec:
 test:
 	$(COMPOSE) run --rm $(SERVICE) $(PHPUNIT) --exclude-group integration
 
+test-coverage:
+	@echo "📊 Ejecutando cobertura solo con tests unitarios..."
+	$(COMPOSE) run --rm $(SERVICE) sh -c "\
+		XDEBUG_MODE=coverage \
+		vendor/bin/phpunit \
+		--exclude-group integration \
+		--coverage-text \
+		--coverage-filter=src \
+	"
+
 test-integration: start
 	@echo "🔧 Iniciando servidor de pruebas dentro del contenedor..."
 	-$(COMPOSE) exec -T $(SERVICE) sh -c 'php -S 0.0.0.0:8081 tests/server.php > /dev/null 2>&1 &'
@@ -28,12 +38,6 @@ test-integration: start
 	@echo "🧹 Deteniendo servidor..."
 	-$(COMPOSE) exec -T $(SERVICE) sh -c 'kill $$(ps -ef | grep "[p]hp -S 0.0.0.0:8081" | awk '\''{print $$2}'\'' ) || true'
 
-coverage:
-	@echo "📊 Ejecutando cobertura solo con tests unitarios..."
-	$(COMPOSE) run --rm $(SERVICE) sh -c "\
-		XDEBUG_MODE=coverage \
-		vendor/bin/phpunit --coverage-text --exclude-group integration \
-	"
 
 # Esto evita que 'exec' intente ejecutarse como objetivo real
 %:
