@@ -1,0 +1,28 @@
+{
+    "name": "amoya/inespay",
+    "require": {
+        "ramsey/uuid": "^4.7",
+        "firebase/php-jwt": "^6.11",
+	    "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Amoya\\Inespay\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ja-moya",
+            "email": "ja.moya.83@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^11.5"
+    }
+}
